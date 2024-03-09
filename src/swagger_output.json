@@ -1,0 +1,319 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "v1.0.0",
+    "title": "Swagger Demo Project",
+    "description": "Implementation of Swagger with TypeScript"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/todo": {
+      "get": {
+        "tags": [
+          "Todo List"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Returns all TODO tasks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#components/schemas/todoResponse"
+                },
+                "example": [
+                  {
+                    "title": "Clean Up",
+                    "created_at": "234234234",
+                    "completed_at": "234234234",
+                    "due_date": "234234234"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Todo List"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Creates a TODO task"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/todoConstruct"
+              },
+              "example": {
+                "title": "clean up",
+                "due_date": "234234234"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/todo/{id}": {
+      "put": {
+        "tags": [
+          "Todo List"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "updates a TODO task"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/todoUpdate"
+              },
+              "example": {
+                "title": "clean up",
+                "due_date": "234234234"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Todo List"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deletes a TODO task"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/test": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Some description...",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#components/schemas/testResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "test"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/testRequest"
+              },
+              "example": {
+                "message": "this is a message string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/test2": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "a new test",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#components/schemas/testResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "todoResponse": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "created_at": {
+            "type": "object",
+            "properties": {}
+          },
+          "completed_at": {
+            "type": "object",
+            "properties": {}
+          },
+          "due_date": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "todoConstruct": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "due_date": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "todoUpdate": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "due_date": {
+            "type": "object",
+            "properties": {}
+          },
+          "completed_at": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "testResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          }
+        }
+      },
+      "testRequest": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "guid": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "number"
+              }
+            }
+          }
+        },
+        "required": [
+          "message"
+        ]
+      }
+    }
+  }
+}
