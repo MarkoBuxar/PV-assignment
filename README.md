@@ -1,5 +1,9 @@
 # puellavone assignment
 
+## API docs
+
+API docs are automatically generated, and are available at `localhost:3000/docs` (assuming default url:port)
+
 ## Setup
 
 ### server
@@ -20,7 +24,7 @@ standard Vite.JS instance
 
 - cd into client folder 
 - execute `yarn` command ( install node modules )
-- make sure port and url are the same between client and server
+- make sure port and url are the same between client and server (`client/src/comonents/Content.svelte`)
 - run client
   - execute `yarn dev` for dev mode
 
