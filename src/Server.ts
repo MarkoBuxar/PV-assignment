@@ -6,6 +6,7 @@ import * as BodyParser from 'body-parser';
 import { RouteHandler } from './Utils/RouteHandler';
 import swaggerUi from 'swagger-ui-express';
 import swaggerOutput from './swagger_output.json';
+import cors from 'cors';
 
 const BASE_PATH = path.join(__dirname, '..');
 
@@ -20,6 +21,7 @@ export class Server {
 
     this.server.use(BodyParser.urlencoded({ extended: true }));
     this.server.use(BodyParser.json());
+    this.server.use(cors());
 
     this.init();
   }
