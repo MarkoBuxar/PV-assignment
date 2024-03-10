@@ -1,15 +1,27 @@
 <script lang="ts">
+  import { create } from 'lodash';
+  import NewButton from '../lib/NewButton.svelte';
   import TodoTask from '../lib/TodoTask.svelte';
   import TODO from '../lib/TodoTask.svelte';
+
+  export const api = 'http://firelink.shrine:3000';
 
   let todos: any[];
 
   async function loadData() {
     // CHANGE PORT HERE
-    const data = await fetch('http://localhost:3000/todo');
+    const data = await fetch(api + '/todo');
     todos = await data.json();
 
     console.log(todos);
+  }
+
+  async function createTask() {
+    console.log('working');
+    todos = [
+      ...todos,
+      { title: '', created_at: '', completed_at: '', due_date: '' },
+    ];
   }
 
   loadData();
@@ -33,18 +45,22 @@
         <TodoTask todoObject={todo}></TodoTask>
       {/each}
     {/if}
+
+    <NewButton newTask={createTask}></NewButton>
   </table>
 </main>
 
 <style>
   .TODO-table {
     width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    table-layout: fixed;
   }
 
   .TODO-table thead {
     font-weight: bold;
+  }
+
+  th {
+    width: 25%;
   }
 </style>

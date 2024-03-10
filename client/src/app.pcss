@@ -11,6 +11,21 @@ body {
   @apply bg-white dark:bg-black text-black dark:text-white text-center;
 }
 
-@tailwind components;
+.TODO-task td {
+  height: 50px;
+  padding: 20px 0;
+  border-bottom: 1px solid #aaa;
+  width: 25%;
+  max-width: 25%;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
-@tailwind utilities;
+.TODO-task {
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.TODO-task:hover {
+  opacity: 0.3;
+}

@@ -15,20 +15,33 @@
 </script>
 
 <tr class="TODO-task">
-  <td class="TODO-title">{todoObject.title}</td>
-  <td class="TODO-date">{todoObject.created_at}</td>
-  <td class="TODO-date">{todoObject.completed_at}</td>
-  <td class="TODO-date">{todoObject.due_date}</td>
+  <td class="TODO-title"
+    ><div contenteditable={editable} class="TODO-text">
+      {todoObject.title}
+    </div>
+  </td>
+  <td class="TODO-date">
+    <div contenteditable={editable} class="TODO-text">
+      {todoObject.created_at}
+    </div>
+  </td>
+  <td class="TODO-date">
+    <div contenteditable={editable} class="TODO-text">
+      {todoObject.completed_at}
+    </div>
+  </td>
+  <td class="TODO-date">
+    <div contenteditable={editable} class="TODO-text">
+      {todoObject.due_date}
+    </div>
+  </td>
 </tr>
 
-<style lang="postcss">
-  .TODO-task td {
-    height: 50px;
-    padding: 20px 0;
-    border-bottom: 1px solid #aaa;
-  }
-
-  .TODO-task thead {
-    border-bottom: 0px;
+<style>
+  .TODO-text {
+    cursor: initial;
+    margin: 0px 20px;
+    overflow: hidden;
+    white-space: nowrap;
   }
 </style>
