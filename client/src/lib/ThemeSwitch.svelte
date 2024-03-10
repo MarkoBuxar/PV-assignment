@@ -1,19 +1,22 @@
-<script lang="ts">
-  let darkMode = false;
+<script context="module" lang="ts">
+  import { writable } from 'svelte/store';
+  export let darkMode = writable(false);
+</script>
 
+<script lang="ts">
   const theme = localStorage.getItem('theme');
 
   if (theme == 'dark') {
-    darkMode = true;
+    $darkMode = true;
     document.documentElement.classList.add('dark');
   }
 
   function handleSwitchDarkMode() {
-    darkMode = !darkMode;
+    $darkMode = !$darkMode;
 
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    localStorage.setItem('theme', $darkMode ? 'dark' : 'light');
 
-    darkMode
+    $darkMode
       ? document.documentElement.classList.add('dark')
       : document.documentElement.classList.remove('dark');
   }
@@ -22,7 +25,7 @@
 <div>
   <input
     type="checkbox"
-    checked={darkMode}
+    checked={$darkMode}
     id="theme-toggle"
     on:click={handleSwitchDarkMode}
   />

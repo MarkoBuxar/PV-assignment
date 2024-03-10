@@ -23,3 +23,9 @@ standard Vite.JS instance
 - make sure port and url are the same between client and server
 - run client
   - execute `yarn dev` for dev mode
+
+
+
+## Dev Notes 
+
+Client was somewhat responsive, before I introduced a date picker library during the last stretch of the development. Had I had more time, I would have tackled the responsibility before submitting. As for tailwind css, I could not get it working across the whole project, and I did not find debugging a new (to me) css library to be a worthwile use of my time, so it's only used very sparringly. I normally just use pure css in my projects, so I'm not very familiar with such technologies yet. 

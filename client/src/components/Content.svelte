@@ -1,27 +1,92 @@
 <script lang="ts">
-  import { create } from 'lodash';
   import NewButton from '../lib/NewButton.svelte';
   import TodoTask from '../lib/TodoTask.svelte';
-  import TODO from '../lib/TodoTask.svelte';
+  import moment from 'moment';
 
+  // CHANGE API LINK HERE
   export const api = 'http://firelink.shrine:3000';
 
   let todos: any[];
 
   async function loadData() {
-    // CHANGE PORT HERE
+    todos = [];
+
     const data = await fetch(api + '/todo');
     todos = await data.json();
 
-    console.log(todos);
+    todos.map((object) => {
+      object.formatedCreateDate = object.created_at
+        ? moment(object.created_at).format('DD/MM/yyyy  HH:mm:ss')
+        : '';
+      object.formatedCompleteDate = object.completed_at
+        ? moment(object.completed_at).format('DD/MM/yyyy  HH:mm:ss')
+        : '';
+
+      object.dueDateObject = object.due_date ? new Date(object.due_date) : null;
+    });
   }
 
-  async function createTask() {
-    console.log('working');
+  async function createEmptyTask() {
     todos = [
       ...todos,
-      { title: '', created_at: '', completed_at: '', due_date: '' },
+      {
+        title: '',
+        created_at: '',
+        completed_at: '',
+        due_date: '',
+        blank: true,
+        formatedCreateDate: '',
+        formatedCompleteDate: '',
+        dueDateObject: null,
+      },
     ];
+  }
+
+  async function createNewTask(todoObject: TodoTask) {
+    if (!todoObject.title) return;
+
+    const finalData: any = { title: todoObject.title };
+
+    if (todoObject.due_date) finalData.due_date = todoObject.due_date;
+
+    const data = await fetch(api + '/todo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(finalData),
+    });
+
+    loadData();
+  }
+
+  async function deleteTask(id: number) {
+    if (typeof id !== 'undefined' && typeof id !== null) {
+      const data = await fetch(api + '/todo/' + id, {
+        method: 'delete',
+      });
+    }
+
+    todos = todos.filter((obj) => obj.id !== id);
+  }
+
+  async function saveTask(todoObject: TodoTask) {
+    const finalData: any = {};
+    if (todoObject.title) finalData.title = todoObject.title;
+    if (todoObject.due_date) finalData.due_date = todoObject.due_date;
+
+    const data = await fetch(api + '/todo/' + todoObject.id, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(finalData),
+    });
+  }
+
+  async function checkOffTask(id: number) {
+    const data = await fetch(api + '/check/' + id, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    loadData();
   }
 
   loadData();
@@ -42,11 +107,17 @@
 
     {#if todos && todos.length}
       {#each todos as todo}
-        <TodoTask todoObject={todo}></TodoTask>
+        <TodoTask
+          todoObject={todo}
+          {deleteTask}
+          {saveTask}
+          {createNewTask}
+          {checkOffTask}
+        ></TodoTask>
       {/each}
     {/if}
 
-    <NewButton newTask={createTask}></NewButton>
+    <NewButton newTask={createEmptyTask}></NewButton>
   </table>
 </main>
 

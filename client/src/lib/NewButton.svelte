@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let newTask;
+  export let newTask: any;
 </script>
 
 <tr on:click={newTask} class="TODO-task">

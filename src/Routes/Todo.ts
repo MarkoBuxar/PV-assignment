@@ -91,9 +91,9 @@ export class Todo {
         const body = req.body;
 
         const todoDB = await Database.Instance.endpoints['todos'];
-        const todo = todoDB.build(body);
+        const todo = await todoDB.build(body);
 
-        todo.save();
+        await todo.save();
 
         res.status(200).send('okay');
       } catch (error) {

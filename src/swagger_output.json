@@ -12,6 +12,32 @@
     }
   ],
   "paths": {
+    "/check/{id}": {
+      "put": {
+        "tags": [
+          "Todo List"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Checks off a TODO task"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/todo": {
       "get": {
         "tags": [

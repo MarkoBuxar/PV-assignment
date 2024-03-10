@@ -272,7 +272,7 @@
   dependencies:
     debug "^4.3.4"
 
-"@sveltejs/vite-plugin-svelte@^3.0.2":
+"@sveltejs/vite-plugin-svelte@^3.0.1":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-3.0.2.tgz#5c33534d07130283cff92304f627010387c11af0"
   integrity sha512-MpmF/cju2HqUls50WyTHQBZUV3ovV/Uk8k66AN2gwHogNAG8wnW8xtZDhzNBsFJJuvmq1qnzA5kE7YfMJNFv2Q==
@@ -352,7 +352,7 @@ aria-query@^5.3.0:
   dependencies:
     dequal "^2.0.3"
 
-autoprefixer@^10.4.18:
+autoprefixer@^10.4.16:
   version "10.4.18"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.18.tgz#fcb171a3b017be7cb5d8b7a825f5aacbf2045163"
   integrity sha512-1DKbDfsr6KUElM6wg+0zRNkB/Q7WcKYAaK+pzXn+Xqmszm/5Xa9coeNdtP88Vi+dPzZnMjhge8GIV49ZQkDa+g==
@@ -502,6 +502,11 @@ cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+
+date-picker-svelte@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/date-picker-svelte/-/date-picker-svelte-2.11.0.tgz#1bb629af24ab6d2fe3dbf7a1e7da4d65aa2520a1"
+  integrity sha512-iaYxY2mZN6uJ1AidZUFy0MorGzdMUeaD5G8z6NIbg22GIn/9ZdnkonTY7I3+zrPp85eGZx/Ws9sCJVhMyV7sog==
 
 debug@^4.3.4:
   version "4.3.4"
@@ -877,6 +882,11 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.6"
 
+moment@^2.30.1:
+  version "2.30.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.30.1.tgz#f8c91c07b7a786e30c59926df530b4eac96974ae"
+  integrity sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==
+
 mri@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mri/-/mri-1.2.0.tgz#6721480fec2a11a4889861115a48b6cbe7cc8f0b"
@@ -1016,6 +1026,14 @@ postcss-load-config@^4.0.1:
     lilconfig "^3.0.0"
     yaml "^2.3.4"
 
+postcss-load-config@^5.0.2:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/postcss-load-config/-/postcss-load-config-5.0.3.tgz#f4927637d907de900c4828615077646844545820"
+  integrity sha512-90pBBI5apUVruIEdCxZic93Wm+i9fTrp7TXbgdUCH+/L+2WnfpITSpq5dFU/IPvbv7aNiMlQISpUkAm3fEcvgQ==
+  dependencies:
+    lilconfig "^3.0.0"
+    yaml "^2.3.4"
+
 postcss-nested@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/postcss-nested/-/postcss-nested-6.0.1.tgz#f83dc9846ca16d2f4fa864f16e9d9f7d0961662c"
@@ -1036,7 +1054,7 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.2.0:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^8.4.23, postcss@^8.4.35:
+postcss@^8.4.23, postcss@^8.4.32, postcss@^8.4.35:
   version "8.4.35"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.35.tgz#60997775689ce09011edf083a549cea44aabe2f7"
   integrity sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==
@@ -1169,6 +1187,7 @@ source-map-js@^1.0.1, source-map-js@^1.0.2:
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -1187,6 +1206,7 @@ string-width@^5.0.1, string-width@^5.1.2:
     strip-ansi "^7.0.1"
 
 "strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+  name strip-ansi-cjs
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -1275,7 +1295,7 @@ svelte@^4.2.11:
     magic-string "^0.30.4"
     periscopic "^3.1.0"
 
-tailwindcss@^3.4.1:
+tailwindcss@^3.3.6:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.1.tgz#f512ca5d1dd4c9503c7d3d28a968f1ad8f5c839d"
   integrity sha512-qAYmXRfk3ENzuPBakNK0SRrUDipP8NQnEY6772uDhflcQz5EhRdD7JNZxyrFHVQNCwULPBn6FNPp9brpO7ctcA==

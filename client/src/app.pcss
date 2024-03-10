@@ -17,15 +17,20 @@ body {
   border-bottom: 1px solid #aaa;
   width: 25%;
   max-width: 25%;
-  overflow: hidden;
+
   white-space: nowrap;
 }
 
 .TODO-task {
   cursor: pointer;
-  transition: opacity 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
 }
 
 .TODO-task:hover {
-  opacity: 0.3;
+  @apply bg-black dark:bg-white text-white dark:text-black;
+}
+
+.dark {
+  --date-picker-background: #1b1e27;
+  --date-picker-foreground: #f7f7f7;
 }
