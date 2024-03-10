@@ -4,7 +4,7 @@
   import moment from 'moment';
 
   // CHANGE API LINK HERE
-  export const api = 'http://firelink.shrine:3000';
+  export const api = 'http://localhost:3000';
 
   let todos: any[];
 
